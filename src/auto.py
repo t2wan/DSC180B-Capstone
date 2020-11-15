@@ -5,6 +5,7 @@ def autophrase(input_path):
         subprocess.run(['brew','install','gcc6'])
         subprocess.run(['brew','update'])
         subprocess.run(["cd", "AutoPhrase"])
+        subprocess.run(['chmod','+x','auto_phrase.sh'])
         subprocess.run(['./', 'auto_phrase.sh'])
         subprocess.run(['cd'])
         return
