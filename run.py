@@ -31,6 +31,12 @@ def main(targets):
         with open('config/eda-params.json') as fh:
             eda_cfg = json.load(fh)
         do_eda(**eda_cfg)
+
+
+    if 'auto' in targets:
+        with open('config/auto-params.json') as fh:
+            auto_cfg = json.load(fh)
+        autophrase(**auto_cfg)
    
 
     return

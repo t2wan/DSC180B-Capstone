@@ -1,0 +1,9 @@
+import subprocess
+def autophrase(input_path):
+
+    if input_file == "data/raw/DBLP.csv":
+        subprocess.run(['brew','install','gcc6'])
+        subprocess.run(['brew','update'])
+        subprocess.run(['./auto_phrase.sh'])
+
+        return
