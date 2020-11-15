@@ -1,3 +1,4 @@
 {
-    "input_path": "data/raw/DBLP.csv"
+    "output_path": "/data/outputs"
+
 }
