@@ -17,7 +17,7 @@ To get the data, from the project root dir, run python run.py data
 This downloads the data from Kaggle in the directory specified in config/data-params.json.
 
 To get the data, from the project root dir, run python run.py data eda
-This downloads the data, then performs EDA and saves the figures in the location specified in eda-params.json.
+This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json.
 
 #TODO
 
