@@ -19,7 +19,10 @@ This downloads the data from Kaggle in the directory specified in config/data-pa
 To get the data, from the project root dir, run python run.py data eda
 This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json.
 
-#TODO
+To get the data, from the project root dir, run python run.py data eda auto
+This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json and run autophrase algorithm from our submodule.
+
+
 
 
 ### Work Cited
