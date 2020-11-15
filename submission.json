@@ -2,6 +2,6 @@
     "config": ["config/data-params.json", "config/eda-params.json"],
     "build": "run.py",
     "library": ["src"],
-    "notebook": ["<notebook_filepath>.ipynb"],
+    "notebook": ["notebook/EDAA.ipynb"],
     "targets": ["data", "eda"]
 }
