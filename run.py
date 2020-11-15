@@ -12,6 +12,7 @@ import numpy as np
 sys.path.insert(0, 'src')
 from etl import get_data
 from eda import do_eda
+from auto import autophrase
 def main(targets):
     '''
     Runs the main project pipeline logic, given the targets.
