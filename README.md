@@ -13,13 +13,22 @@ Some Python Scripts, involved in etl.py, eda.py, to download data, process data,
 	
 ### How to Run the Code
 
-To get the data, from the project root dir, run python run.py data
+To get the data, from the project root dir, 
+
+run python run.py data
+
 This downloads the data from Kaggle in the directory specified in config/data-params.json.
 
-To get the data, from the project root dir, run python run.py data eda
+To get the data, from the project root dir, 
+
+run python run.py data eda
+
 This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json.
 
-To get the data, from the project root dir, run python run.py data eda auto
+To get the data, from the project root dir, 
+
+run python run.py data eda auto
+
 This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json and run autophrase algorithm from our submodule.
 
 
