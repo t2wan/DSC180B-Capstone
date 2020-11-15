@@ -29,7 +29,7 @@ To get the data, from the project root dir,
 
 run python run.py data eda auto
 
-This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json and run autophrase algorithm from our submodule.
+This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json and run autophrase algorithm from our submodule , saving the output to the location specified in config/auto-params.json.
 
 
 
