@@ -7,6 +7,7 @@ The purpose of phrase mining is to extract high-quality phrases from a large amo
 For CheckPoint 2, our code would do the data ingestion proportion first, to pull DBLP.txt as the input corpus for future use from the cloud and save it at data/EN/ depository depending on the hyper-parameter. Then to perform some basic EDA on it. At the end we would run the autophrase algorithm.
 
 ### Code Content
+Some Python Scripts, involved in etl.py, eda.py, to download data, process data, and analyze data.
 
 
 	
