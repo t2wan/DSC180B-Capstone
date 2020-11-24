@@ -3,8 +3,8 @@ import os
 
 def test(input_file):
     mycwd = os.getcwd()
-    #subprocess.run(['brew','install','gcc6'])
-    #subprocess.run(['brew','update'])
+    subprocess.run(['brew','install','gcc6'])
+    subprocess.run(['brew','update'])
     os.rename('./test/'+input_file, './AutoPhrase/data/EN/'+input_file)
     os.chdir('AutoPhrase')
     subprocess.run(['chmod','+x','auto_phrase.sh'])
