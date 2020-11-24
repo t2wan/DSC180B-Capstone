@@ -5,9 +5,10 @@ def test(output_path):
     mycwd = os.getcwd()
     #subprocess.run(['brew','install','gcc6'])
     #subprocess.run(['brew','update'])
+    os.rename('./test/DBLP.05K.txt', './AutoPhrase/data/EN/DBLP.05K.txt')
     os.chdir('AutoPhrase')
     subprocess.run(['chmod','+x','auto_phrase.sh'])
-    subprocess.run(['./auto_phrase.sh','DBLP.5k.txt'])
+    subprocess.run(['./auto_phrase.sh','DBLP.05k.txt'])
 
     os.chdir(mycwd)
     os.rename('./AutoPhrase/models/DBLP/AutoPhrase.txt', '.'+output_path + '/AutoPhrase.txt')
