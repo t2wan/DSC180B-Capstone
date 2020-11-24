@@ -8,7 +8,7 @@ def test(input_path):
     os.rename('./test/'+ input_path, './AutoPhrase/data/EN/' + input_path)
     os.chdir('AutoPhrase')
     subprocess.call(['chmod','+x','auto_phrase.sh'], shell=True)
-    subprocess.call(['./auto_phrase.sh'], shell=True)
+#     subprocess.call(['./auto_phrase.sh'], shell=True)
     subprocess.call(['./auto_phrase.sh', input_path], shell=True)
 
     os.chdir(mycwd)
