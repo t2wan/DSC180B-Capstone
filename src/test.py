@@ -18,5 +18,6 @@ def test(input_path):
     os.rename('./AutoPhrase/models/DBLP/AutoPhrase_single-word.txt', './data/outputs/test/AutoPhrase_single-word.txt')
     os.rename('./AutoPhrase/models/DBLP/token_mapping.txt', './data/outputs/test/token_mapping.txt')
     os.rename('./AutoPhrase/models/DBLP/segmentation.model', './data/outputs/test/segmentation.model')
+    os.rename('./AutoPhrase/data/EN/'+ input_path, './test/' + input_path)
 
     return
