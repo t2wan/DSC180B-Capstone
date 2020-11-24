@@ -41,7 +41,7 @@ def main(targets):
         autophrase(**auto_cfg)
     
     if 'test' in targets:
-        with open('config/auto-params.json') as fh:
+        with open('config/test-params.json') as fh:
             test_cfg = json.load(fh)
         test(**test_cfg)
 
