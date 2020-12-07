@@ -1,3 +1,5 @@
 {
-    "out_file": "data/raw/DBLP.csv"
+    "out_file": "data/raw/DBLP.txt",
+    "kk_file": "AutoPhrase/data/EN/DBLP.5K.txt",
+    "kk_out_file": "data/raw/DBLP.5K.txt"
 }
