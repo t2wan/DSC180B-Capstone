@@ -1,3 +1,7 @@
 {
-    "out_dir": "data/eda"
+    "input_path1":"data/raw/DBLP.txt",
+    "input_path2":"data/raw/DBLP.5K.txt",
+    "file1": "DBLP",
+    "file2": "DBLP.5K",
+    "out_dir": "data/eda/"
 }
