@@ -3,7 +3,7 @@ import requests
 import gzip
 import pandas as pd
 
-def get_data(out_file):
+def get_data(out_file, kk_file, kk_out_file):
     url = 'http://dmserv2.cs.illinois.edu/data/DBLP.txt.gz'
     r = requests.get(url, allow_redirects=True)
     open('DBLP.txt.gz', 'wb').write(r.content)
@@ -26,6 +26,21 @@ def get_data(out_file):
     data['sentence'] = data['sentence'].apply(lambda x: x.replace('.',''))
     data = data[data['sentence']!='']
     data = data.reset_index(drop = True)
-    data.to_csv(out_file,index=False)
+    data.to_csv(out_file,index=None, header = None, sep='\t')
     os.remove('DBLP.txt.gz')
+
+    data_kk = pd.read_csv(kk_file, header = None, names=['sentence'])
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x:x.strip('\\n'))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.lower())
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('(',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace(')',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('?',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('@',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace(':',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace(',',''))
+    data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('.',''))
+    data_kk = data_kk[data_kk['sentence']!='']
+    data_kk = data_kk.reset_index(drop = True)
+    data_kk.to_csv(kk_out_file, index=None, header = None, sep='\t')
+
     return 
