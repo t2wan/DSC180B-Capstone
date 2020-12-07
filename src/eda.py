@@ -80,7 +80,7 @@ def do_eda(out_dir,input_path1,input_path2,file1,file2):
     num_rare = sum(i < 5 for i in token_arr)
 
     plt.figure()
-    plt.hist(list(output.values()), bins = 300)
+    plt.hist(list(output.values()), bins = 80)
     plt.title('tokens distribution of '+ file1)
     plt.savefig(out_dir+file1+' tokens_distribution.png')
     plt.close()
