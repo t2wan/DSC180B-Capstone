@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#DS Store
+find . -name .DS_Store -print0 | xargs -0 git rm --ignore-unmatch
