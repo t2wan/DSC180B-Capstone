@@ -13,6 +13,8 @@ sys.path.insert(0, 'src')
 from etl import get_data
 from eda import do_eda
 from auto import autophrase
+# from test import test
+from visual import visual
 def main(targets):
     '''
     Runs the main project pipeline logic, given the targets.
@@ -38,7 +40,11 @@ def main(targets):
         with open('config/auto-params.json') as fh:
             auto_cfg = json.load(fh)
         autophrase(**auto_cfg)
-   
+
+    if 'visual' in targets:
+        with open('config/visual-params.json') as fh:
+            visual_cfg = json.load(fh)
+        visual(**visual_cfg)
 
     return
 if __name__ == '__main__':
