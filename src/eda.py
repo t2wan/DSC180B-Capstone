@@ -89,7 +89,7 @@ def do_eda(out_dir,input_path,file):
         plt.close()
 
         strs = 'Mean for length distribution of '+ file+ ' is ' + str(mean) + '. Std is ' + str(std) + '. Number of Rare tokens is ' + str(num_rare) +'.'
-        f = open(out_dir+ " description.txt", "a")
+        f = open(out_dir+ "description.txt", "a")
         f.write(strs)
         f.close()
         print('Done')
