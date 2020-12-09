@@ -1,7 +1,4 @@
 {
-    "config": ["config/data-params.json", "config/eda-params.json", "config/auto-params.json"],
-    "build": "run.py",
-    "library": ["src"],
-    "notebook": ["notebook/EDAA.ipynb"],
-    "targets": ["data", "eda", "auto"]
+    "dockerhub-id": "t2wan/m7",
+    "repository-id": "https://github.com/t2wan/DSC180A-Final-Replication.git"
 }
