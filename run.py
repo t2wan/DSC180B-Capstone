@@ -22,7 +22,18 @@ def main(targets):
     
     `main` runs the targets in order of data=>analysis=>model.
     '''
+    if 'all' in targets:
+        with open('config/data-params.json') as fh:
+            data_cfg = json.load(fh)
+        get_data(**data_cfg)
 
+    
+    if 'test' in targets:
+        with open('config/data-params-test.json') as fh:
+            data_cfg = json.load(fh)
+        get_data(**data_cfg)
+
+    
     if 'data' in targets:
         with open('config/data-params.json') as fh:
             data_cfg = json.load(fh)
