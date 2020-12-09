@@ -39,6 +39,6 @@ def visual(out_dir,input_path,file1,file2,autophrase,multi_word,single_word,toke
     #randomly pick
     high_quality = data_multi[data_multi['value']>=0.5]
     sample = high_quality.sample(n=100, replace = False).sort_values(by=['value'], ascending=False)
-    sample.to_csv(input_path+'sample multi-words', index=None, header = None, sep='\t')
+    sample.to_csv(input_path+'sample multi-words.txt', index=None, header = None, sep='\t')
 
     return
