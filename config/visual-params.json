@@ -1,11 +1,10 @@
 {
-    "file1": "DBLP",
-    "file2": "DBLP.5K",
+    "file": "DBLP",
     "input_path": "data/outputs/",
     "out_dir": "data/eda/",
-    "autophrase": " AutoPhrase.txt",
-    "multi_word": " AutoPhrase_multi-words.txt",
-    "single_word": " AutoPhrase_single-word.txt",
-    "token_mapping": " token_mapping.txt"
+    "autophrase": "AutoPhrase.txt",
+    "multi_word": "AutoPhrase_multi-words.txt",
+    "single_word": "AutoPhrase_single-word.txt",
+    "token_mapping": "token_mapping.txt"
 
 }
