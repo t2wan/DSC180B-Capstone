@@ -6,6 +6,7 @@ from tqdm import tqdm
 import numpy as np
 
 def do_eda(out_dir,input_path,file):
+    print('Creating EDA Graphs')
     if file == "DBLP.5K":
         data_kk = pd.read_csv(input_path, header=None, names=['sentence'])
         data_kk['length'] = data_kk['sentence'].apply(lambda x: len(str(x).split(' ')))
@@ -43,6 +44,8 @@ def do_eda(out_dir,input_path,file):
         f = open(out_dir + "description.txt", "a")
         f.write(strs_kk)
         f.close()
+        print('Done')
+
     if file == "DBLP":
         data = pd.read_csv(input_path, header=None, names=['sentence'])
         data['length'] = data['sentence'].apply(lambda x: len(str(x).split(' ')))
@@ -89,5 +92,6 @@ def do_eda(out_dir,input_path,file):
         f = open(out_dir+ " description.txt", "a")
         f.write(strs)
         f.close()
+        print('Done')
 
     return
