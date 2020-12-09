@@ -50,12 +50,12 @@ This performs analysis on the results and saves the figures in the location spec
 
 To run whole project,
 
-### run python run.py all
+run python run.py all
 
 
 To make a test run,
 
-### run python run.py test
+run python run.py test
 
 
 
