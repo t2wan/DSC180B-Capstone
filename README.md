@@ -4,32 +4,60 @@ The purpose of phrase mining is to extract high-quality phrases from a large amo
 
 ### Purpose of the Code
 
-For CheckPoint 2, our code would do the data ingestion proportion first, to pull DBLP.txt as the input corpus for future use from the cloud and save it at data/EN/ depository depending on the hyper-parameter. Then to perform some basic EDA on it. At the end we would run the autophrase algorithm.
+For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. At the end we would run the autophrase algorithm along with phrasal segmentation,analyzing the results.
 
 ### Code Content
-Some Python Scripts, involved in etl.py, eda.py, to download data, process data, and analyze data.
-
+Some Python Scripts, involved in etl.py, eda.py, auto.py, and visual.py to download, process data,analyze, and visualize data.
 
 	
 ### How to Run the Code
 
-To get the data, from the project root dir, 
+To get the data, 
 
-run python run.py data
 
-This downloads the data from Kaggle in the directory specified in config/data-params.json.
+run python run.py etl
 
-To get the data, from the project root dir, 
 
-run python run.py data eda
+This downloads the data from Kaggle in the directory specified in config/etl-params.json and do data cleaning.
 
-This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json.
 
-To get the data, from the project root dir, 
+To do the eda for the data, 
 
-run python run.py data eda auto
 
-This downloads the data, then performs EDA and saves the figures in the location specified in config/eda-params.json and run autophrase algorithm from our submodule , saving the output to the location specified in config/auto-params.json.
+run python run.py eda
+
+
+This performs EDA and saves the figures in the location specified in config/eda-params.json.
+
+
+To run autophrase algorithm, 
+
+
+run python run.py auto
+
+
+This performs autophrase algorithm and saves the results in the location specified in config/auto-params.json.
+
+
+To analyze the output of autophrase, 
+
+
+run python run.py visual
+
+
+This performs analysis on the results and saves the figures in the location specified in config/visual-params.json.
+
+
+To run whole project,
+
+run python run.py all
+
+
+To make a test run,
+
+run python run.py test
+
+
 
 
 
@@ -42,7 +70,7 @@ Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "Autom
 ### Responsibilities
 We discussed the general idea of the replication project and outlined the steps of the process together.
 Tiange Wan: majority of code portion, revised the report portion.
-Yicen Ma: majority of report portion, revised the code portion and involved in the Git Submodule.
+Yicen Ma: majority of report portion, revised the code portion.
 
 
 
