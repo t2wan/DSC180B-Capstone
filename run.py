@@ -19,7 +19,6 @@ def main(targets):
     '''
     Runs the main project pipeline logic, given the targets.
     targets must contain: 'data', 'analysis', 'model'. 
-    
     `main` runs the targets in order of data=>analysis=>model.
     '''
     if 'all' in targets:
@@ -27,13 +26,36 @@ def main(targets):
             data_cfg = json.load(fh)
         get_data(**data_cfg)
 
+        with open('config/eda-params.json') as fh:
+            eda_cfg = json.load(fh)
+        do_eda(**eda_cfg)
+
+        with open('config/auto-params.json') as fh:
+            auto_cfg = json.load(fh)
+        autophrase(**auto_cfg)
+
+        with open('config/visual-params.json') as fh:
+            visual_cfg = json.load(fh)
+        visual(**visual_cfg)
     
     if 'test' in targets:
         with open('config/data-params-test.json') as fh:
             data_cfg = json.load(fh)
         get_data(**data_cfg)
+        
+        with open('config/eda-params-test.json') as fh:
+            eda_cfg = json.load(fh)
+        do_eda(**eda_cfg)
 
-    
+        with open('config/auto-params-test.json') as fh:
+            auto_cfg = json.load(fh)
+        autophrase(**auto_cfg)
+
+        with open('config/visual-params-test.json') as fh:
+            visual_cfg = json.load(fh)
+        visual(**visual_cfg)
+
+
     if 'data' in targets:
         with open('config/data-params.json') as fh:
             data_cfg = json.load(fh)
