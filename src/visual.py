@@ -23,4 +23,5 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
     plt.savefig(input_path+ 'multi_value_distribution'+'.png')
     plt.close()
     print("Done!")
+    print("All results are in the /data/outputs folder!")
     return
