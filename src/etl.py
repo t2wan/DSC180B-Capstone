@@ -29,6 +29,7 @@ def get_data(file, out_path):
         data = data.reset_index(drop = True)
         data.to_csv(out_path + file,index=None, header = None, sep='\t')
         os.remove('DBLP.txt.gz')
+        print('Downloading Data')
         
     if file == "DBLP.5K.txt":
         data_kk = pd.read_csv("AutoPhrase/data/EN/DBLP.5K.txt", header = None, names=['sentence'])
@@ -44,5 +45,6 @@ def get_data(file, out_path):
         data_kk = data_kk[data_kk['sentence']!='']
         data_kk = data_kk.reset_index(drop = True)
         data_kk.to_csv(out_path + file, index=None, header = None, sep='\t')
+        print('Downloading Data')
 
     return 
