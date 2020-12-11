@@ -12,51 +12,51 @@ Some Python Scripts, involved in etl.py, eda.py, auto.py,visual.py, and example.
 	
 ### How to Run the Code
 
-To get the data,     -      run python run.py etl
+To get the data:     -      run python run.py etl
 
 
-This downloads the data from Kaggle in the directory specified in config/etl-params.json and do data cleaning.
+This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process.
 
 
-To do the eda for the data, 
+To do the eda for the data     -       run python run.py eda
 
 
-run python run.py eda
+This performs exploratory data analysis and saves the figures in the location specified in config/eda-params.json.
 
 
-This performs EDA and saves the figures in the location specified in config/eda-params.json.
+To run autophrase algorithm and get the segementation result.     -        run python run.py auto
 
 
-To run autophrase algorithm, 
+
+This performs autophrase algorithm and phrasal segmentation saves the results in the location specified in config/auto-params.json.
 
 
-run python run.py auto
-
-
-This performs autophrase algorithm and saves the results in the location specified in config/auto-params.json.
-
-
-To analyze the output of autophrase, 
-
-
-run python run.py visual
+To analyze the output of autophrase           -         run python run.py visual
 
 
 This performs analysis on the results and saves the figures in the location specified in config/visual-params.json.
 
 
-To run whole project,
-
-run python run.py all
+To find the most 5 similar phrases           -         run python run.py example
 
 
-To make a test run,
-
-run python run.py test
+This ask the users to manually label the high-quality phrase. It builds the word2vec model on the phrasal segmentation results to obtain phrase embedding based on random sampleing. It also report the top-5 similar phrases based on the 3 high-quality phrases from your previous annotations.However, if the users want to try their own sampling, they can manually label the high-quality phrases in sample.txt, which stored the output file by changing the configuration. 
 
 
+To run whole project       -          run python run.py all
+
+It will complete the whole process with results.
 
 
+To make a test run.          -        run python run.py test
+
+It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. However, in this test run, it will not generate the last steps, because the phrase embedding building is not build for the test dataset, becaused it has less than 100 phrases to train.
+
+
+
+### Reference
+
+In the folder data/folder/example, we stored a file called sample_example.txt. It randomly samples 100 multi-phrases after computing the result from AutoPhrase and we manually label the high-quality phrases. In the run.py all or run.py example, we apply that file in it, but if the users want to try their own sampling, they can change the configuration and add the column of label in the file to apply it.
 
 
 ### Work Cited
@@ -66,8 +66,8 @@ Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "Autom
 
 ### Responsibilities
 We discussed the general idea of the replication project and outlined the steps of the process together.
-Tiange Wan: majority of code portion, revised the report portion.
-Yicen Ma: majority of report portion, revised the code portion.
+Tiange Wan: some of code portion and report portion, and revised the report portion.
+Yicen Ma: some of code portion and report portion, and revised the code portion.
 
 
 
