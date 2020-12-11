@@ -58,5 +58,5 @@ def example(save_path,direct_path,raw_path,sample,segmentation, words):
         fp.close()
     except:
         print('Try to change the word!')
-    print("All Done! Check the similar words in the ")
+    print("All Done! Check the similar words in data/output/example")
     return
