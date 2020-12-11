@@ -83,7 +83,11 @@ Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "Autom
 
 ### Responsibilities
 We discussed the general idea of the replication project and outlined the steps of the process together.
+
+
 Tiange Wan: some of code portion and report portion, and revised the report portion.
+
+
 Yicen Ma: some of code portion and report portion, and revised the code portion.
 
 
