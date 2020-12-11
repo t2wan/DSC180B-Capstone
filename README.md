@@ -29,7 +29,7 @@ This downloads the data from Illinois University in the directory specified in c
 
 
 
-##### To do the eda for the data     -       run python run.py eda
+##### To do the EDA for the data     -       run python run.py eda
 
 
 This performs exploratory data analysis and saves the figures in the location specified in config/eda-params.json. You can find the graphs in the data/eda folder.
