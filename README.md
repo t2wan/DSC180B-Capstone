@@ -18,6 +18,8 @@ To get the data:     -      run python run.py etl
 This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process.
 
 
+
+
 To do the eda for the data     -       run python run.py eda
 
 
