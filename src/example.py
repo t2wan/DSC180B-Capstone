@@ -42,7 +42,7 @@ def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
     plt.savefig(direct_path+'precision-recall.png')
     plt.close()
 
-    f = open(direct_path + segmentation, "r")
+    f = open(save_path + segmentation, "r")
     text = f.read()
     tokens = list(map(lambda y: list(map(lambda x:x[8:-9].replace(' ','_'),re.findall('<phrase>[^<]+</phrase>',y)))+list(filter(lambda x:len(x)>0,re.sub('<phrase>[^<]+</phrase>','',y).split(' '))),text.split('\n')))
     model = Word2Vec(tokens,workers=9)
@@ -64,3 +64,4 @@ def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
     except:
         print('test data does not necessarily support this operation!')
     return
+
