@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import json
 
 
-def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
+def example(save_path,direct_path,raw_path,sample,segmentation, words):
     df = pd.read_csv(save_path + 'AutoPhrase_multi-words.txt',sep='\t',header=None)
     df.columns = ['Score','Words']
     subset = df[df['Score']>0.5].sample(100,replace=True)
@@ -17,13 +17,8 @@ def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
     subset.to_csv(save_path + "sample.txt", index=None, header = None, sep='\t')
 
     subset = pd.read_csv(direct_path + sample ,sep='\t',header=None)
-    subset.columns = ['Score','Words']
-    buckets = [0] * 100
-    mannual = label
-    for i in mannual.split(' '):
-        buckets[int(i)-1] = 1
-    
-    subset['label'] = buckets
+    subset.columns = ['Score','Words','label']
+
     recalls =[]
     precisions =[]
     for i in np.arange(0.6,0.9,0.01):
@@ -54,7 +49,7 @@ def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
     fp.close()
 
     sample3 = words.split(',')
-    allmulti = list(map(lambda x:x.replace(' ','_'),df[df['Score']>0.5]['Words'].tolist()))
+
     try:
         r = model.wv.most_similar(positive=sample3,topn=5)
         fp = open(direct_path + "most_similar.txt", "w", encoding="utf-8")
@@ -62,6 +57,6 @@ def example(save_path,direct_path,raw_path,label,sample,segmentation, words):
             fp.write(word[0] + ' ' + str(word[1]) +'\n')
         fp.close()
     except:
-        print('test data does not necessarily support this operation!')
+        print('Try to change the word!')
+    print("All Done! Check the similar words in the ")
     return
-
