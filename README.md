@@ -2,6 +2,15 @@
 
 The purpose of phrase mining is to extract high-quality phrases from a large amount of text corpus. It identifies the phrases instead of an unigram word, which provides a much more understanding of the text.  In this study, we apply AutoPhrase method into two different datasets and compare the decreasing quality ranked list of phrase ranked list in multi-words and single word. Our datasets are from the abstract of Scientific papers in English with the English knowledge base from Wikipedia. Through this project, we will be able to understand the advantages of the AutoPhrase method and how to implement Autophrase in two datasets by identifying different outcomes it produces. 
 
+
+### Requirements
+##### If you run in the local:
+Linux or MacOS with g++, Java and gensim installed.
+
+
+##### You can also use our docker images to run the code. No need any install. It stores in submission.json file.
+
+
 ### Purpose of the Code
 
 For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. We would run the autophrase algorithm along with phrasal segmentation, analyzing the results. At the end, we manually label the high-quality phrases and select 3 phrases and put those into the phrase embedding model to return five most silimiar phrase as the result.
@@ -15,7 +24,7 @@ Some Python Scripts, involved in etl.py, eda.py, auto.py,visual.py, and example.
 To get the data:     -      run python run.py etl
 
 
-This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process.
+This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process. You can find the result
 
 
 
