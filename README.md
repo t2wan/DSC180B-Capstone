@@ -13,7 +13,7 @@ Linux or MacOS with g++, Java and gensim installed.
 
 ### Purpose of the Code
 
-For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. We would run the autophrase algorithm along with phrasal segmentation, analyzing the results. At the end, we manually label the high-quality phrases and select 3 phrases and put those into the phrase embedding model to return five most silimiar phrase as the result.
+For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. We would run the autophrase algorithm along with phrasal segmentation, analyzing the results. At the end, we manually label the high-quality phrases and select 3 phrases and put those into the phrase embedding model to return five most similiar phrase as the result.
 
 ### Code Content
 Some Python Scripts, involved in etl.py, eda.py, auto.py,visual.py, and example.py to download, process data, analyze, visualize data and find the most similar phrase by building the model.
