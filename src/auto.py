@@ -1,5 +1,6 @@
 import subprocess
 import os
+import pandas as pd
 
 def autophrase(filename,save_path,direct_path,raw_path):
     mycwd = os.getcwd()
@@ -267,7 +268,8 @@ time java $TOKENIZER -m segmentation -i $TEXT_TO_SEG -segmented tmp/tokenized_se
     
     os.rename('./AutoPhrase/models/DBLP/segmentation.txt',save_path+'segmentation.txt')
 
-
-
+    if filename == "DBLP.5K":
+        data_kk = pd.read_csv(raw_path+filename+'.txt', header=None, names=['sentence'])
+        data_kk.to_csv(direct_path +filename+'.txt',index=None, header = None, sep='\t')
     print("You can now see the results in ./data/outputs folder!")
     return
