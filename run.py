@@ -1,4 +1,4 @@
-import sys
+ import sys
 import os
 import json
 import requests
@@ -13,8 +13,9 @@ sys.path.insert(0, 'src')
 from etl import get_data
 from eda import do_eda
 from auto import autophrase
-# from test import test
 from visual import visual
+from example import example
+
 def main(targets):
     '''
     Runs the main project pipeline logic, given the targets.
@@ -37,6 +38,10 @@ def main(targets):
         with open('config/visual-params.json') as fh:
             visual_cfg = json.load(fh)
         visual(**visual_cfg)
+
+        with open('config/example-params.json') as fh:
+            example_cfg = json.load(fh)
+        example(**example_cfg)
     
     if 'test' in targets:
         with open('config/data-params-test.json') as fh:
@@ -76,6 +81,11 @@ def main(targets):
 
     if 'visual' in targets:
         with open('config/visual-params.json') as fh:
+            visual_cfg = json.load(fh)
+        visual(**visual_cfg)
+    
+    if 'example' in targets:
+        with open('config/example-params.json') as fh:
             visual_cfg = json.load(fh)
         visual(**visual_cfg)
 
