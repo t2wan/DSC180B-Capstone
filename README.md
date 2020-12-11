@@ -4,18 +4,15 @@ The purpose of phrase mining is to extract high-quality phrases from a large amo
 
 ### Purpose of the Code
 
-For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. At the end we would run the autophrase algorithm along with phrasal segmentation,analyzing the results.
+For Final Replication, our code would do the data ingestion proportion first, to pull data as the input corpus for future use from the cloud. Then to perform some basic EDA on it. We would run the autophrase algorithm along with phrasal segmentation, analyzing the results. At the end, we manually label the high-quality phrases and select 3 phrases and put those into the phrase embedding model to return five most silimiar phrase as the result.
 
 ### Code Content
-Some Python Scripts, involved in etl.py, eda.py, auto.py, and visual.py to download, process data,analyze, and visualize data.
+Some Python Scripts, involved in etl.py, eda.py, auto.py,visual.py, and example.py to download, process data, analyze, visualize data and find the most similar phrase by building the model.
 
 	
 ### How to Run the Code
 
-To get the data, 
-
-
-run python run.py etl
+To get the data,     -      run python run.py etl
 
 
 This downloads the data from Kaggle in the directory specified in config/etl-params.json and do data cleaning.
