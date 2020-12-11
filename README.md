@@ -21,47 +21,48 @@ Some Python Scripts, involved in etl.py, eda.py, auto.py,visual.py, and example.
 	
 ### How to Run the Code
 
-To get the data:     -      run python run.py etl
+##### To get the data:     -      run python run.py etl
 
 
-This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process. You can find the result
-
-
-
-
-To do the eda for the data     -       run python run.py eda
-
-
-This performs exploratory data analysis and saves the figures in the location specified in config/eda-params.json.
-
-
-To run autophrase algorithm and get the segementation result.     -        run python run.py auto
+This downloads the data from Illinois University in the directory specified in config/etl-params.json and do data cleaning process. You can find the result in the data/raw folder.
 
 
 
-This performs autophrase algorithm and phrasal segmentation saves the results in the location specified in config/auto-params.json.
+
+##### To do the eda for the data     -       run python run.py eda
 
 
-To analyze the output of autophrase           -         run python run.py visual
+This performs exploratory data analysis and saves the figures in the location specified in config/eda-params.json. You can find the graphs in the data/eda folder.
 
 
-This performs analysis on the results and saves the figures in the location specified in config/visual-params.json.
+
+##### To run autophrase algorithm and get the segementation result       -        run python run.py auto
 
 
-To find the most 5 similar phrases           -         run python run.py example
+This performs autophrase algorithm and phrasal segmentation saves the results in the location specified in config/auto-params.json. You can find the result in the data/output folder.
 
 
-This ask the users to manually label the high-quality phrase. It builds the word2vec model on the phrasal segmentation results to obtain phrase embedding based on random sampleing. It also report the top-5 similar phrases based on the 3 high-quality phrases from your previous annotations.However, if the users want to try their own sampling, they can manually label the high-quality phrases in sample.txt, which stored the output file by changing the configuration. 
+
+##### To analyze the output of autophrase           -         run python run.py visual
 
 
-To run whole project       -          run python run.py all
-
-It will complete the whole process with results.
+This performs analysis on the results and saves the figures in the location specified in config/visual-params.json. You can find the two distributions in the data/output folder.
 
 
-To make a test run.          -        run python run.py test
+##### To find the most 5 similar phrases           -         run python run.py example
 
-It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. However, in this test run, it will not generate the last steps, because the phrase embedding building is not build for the test dataset, becaused it has less than 100 phrases to train.
+
+This ask the users to manually label the high-quality phrase. It builds the word2vec model on the phrasal segmentation results to obtain phrase embedding based on random sampleing. It also report the top-5 similar phrases based on the 3 high-quality phrases from your previous annotations.However, if the users want to try their own sampling, they can manually label the high-quality phrases in sample.txt, which stored the output file by changing the configuration. You can find the result in the data/output/example folder.
+
+
+##### To run whole project       -          run python run.py all
+
+It will complete the whole process with results. The defualt is the dataset DBLP.txt, if you want to try other dataset, edit the configuation file to your own dataset. All of the input and result can find the in the data folder.
+
+
+##### To make a test run.          -        run python run.py test
+
+It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. However, in this test run, it will not generate the last steps, because the phrase embedding building is not build for the test dataset, becaused it has less than 100 phrases to train. It will complete the whole process with results. All of the input and result can find the in the data folder.
 
 
 
@@ -73,7 +74,12 @@ In the folder data/folder/example, we stored a file called sample_example.txt. I
 ### Work Cited
 
 Professor Jingbo Shang’s Github: https://github.com/shangjingbo1226/AutoPhrase
+
+
 Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "Automated Phrase Mining from Massive Text Corpora", accepted by IEEE Transactions on Knowledge and Data Engineering, Feb. 2018.
+
+
+
 
 ### Responsibilities
 We discussed the general idea of the replication project and outlined the steps of the process together.
