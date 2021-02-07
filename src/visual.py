@@ -43,7 +43,7 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         for d in cum: 
             counter.update(d)
         res = pd.DataFrame({'Word':dict(counter).keys(),'Score':dict(counter).values()})
-        res['Score'] = res['Score'].apply(lambda x: (x-min(res['Score'])/(max(res['Score']-min(res['Score']))
+        res['Score'] = res['Score'].apply(lambda x: (x-min(res['Score']))/(max(res['Score'])-min(res['Score'])))
         res.sort_values('Score',ascending=False,inplace=True)
         res.to_csv('data/outputs/tfidf.csv',index=False)
         
