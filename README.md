@@ -62,13 +62,8 @@ It will complete the whole process with results. The defualt is the dataset DBLP
 
 ##### To make a test run.          -        run python run.py test
 
-It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. However, in this test run, it will not generate the last steps, because the phrase embedding building is not build for the test dataset, becaused it has less than 100 phrases to train. It will complete the whole process with results. All of the input and result can find the in the data folder.
+It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. This compares the result between tf-idf scores, autophrase quality scores, and their multiplication.
 
-
-
-### Reference
-
-In the folder data/folder/example, we stored a file called sample_example.txt. It randomly samples 100 multi-phrases after computing the result from AutoPhrase and we manually label the high-quality phrases. In the run.py all or run.py example, we apply that file in it, but if the users want to try their own sampling, they can change the configuration and add the column of label in the file to apply it.
 
 
 ### Work Cited
@@ -89,6 +84,9 @@ Tiange Wan: some of code portion and report portion, and revised the report port
 
 
 Yicen Ma: some of code portion and report portion, and revised the code portion.
+
+
+Anant Gandhi: Web Application Deployment
 
 
 
