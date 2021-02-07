@@ -65,6 +65,10 @@ It will complete the whole process with results. The defualt is the dataset DBLP
 It will implement dataset DBLP.5k.txt, which is a test data to check the whole process is working. DBLP.5k.txt is sampled from the original dataset DBLP.txt. This compares the result between tf-idf scores, autophrase quality scores, and their multiplication.
 
 
+### Notebook Contents
+In the notebook, it will help the users visulized all the results from the run.py with some brief explanations.
+
+
 
 ### Work Cited
 
@@ -86,7 +90,7 @@ Tiange Wan: some of code portion and report portion, and revised the report port
 Yicen Ma: some of code portion and report portion, and revised the code portion.
 
 
-Anant Gandhi: Web Application Deployment
+Anant Gandhi: participate in another repo
 
 
 
