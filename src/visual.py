@@ -6,11 +6,12 @@ from tqdm import tqdm
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import collections
+import nltk
 
 def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mapping):
     print("Creating Distribution graphs of the outputs")
-    data_kk_single = pd.read_csv(input_path+single_word, sep="\t",header = None,names=['value', 'phrase'])
-    data_kk_multi = pd.read_csv(input_path+multi_word, sep="\t",header = None,names=['value', 'phrase'])
+    data_kk_single = pd.read_csv(input_path + single_word, sep="\t", header = None, names=['value', 'phrase'])
+    data_kk_multi = pd.read_csv(input_path + multi_word, sep="\t", header = None, names=['value', 'phrase'])
 
     #single-word distribution
     plt.figure()
@@ -24,14 +25,37 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
     plt.title('result of '+ file+' multi-words value distribution')
     plt.savefig(input_path+ 'multi_value_distribution'+'.png')
     plt.close()
-    
+
+
+    plt.title('Quality Score Distribution of Single-Word Phrases')
+    plt.hist(data_kk_single['value'], alpha = 0.5, label = 'single', color = 'gray')
+    plt.xlabel('Probability of Quality Word/Phrase')
+    plt.ylabel('Frequency')
+    plt.legend(loc='upper right')
+    plt.show()
+
+    plt.title('Quality Score Distribution of Multi-Word Phrases')
+    plt.hist(data_kk_multi['value'], alpha = 0.5, label = 'multi', color = 'red')
+    plt.xlabel('Probability of Quality Word/Phrase')
+    plt.ylabel('Frequency')
+    plt.legend(loc='upper right')
+    plt.show()
+
+    plt.title('Quality Score Distribution of Single-Word vs. Multi-Word Phrases')
+    plt.hist(data_kk_single['value'], alpha = 0.5, label = 'single', color = 'gray')
+    plt.hist(data_kk_multi['value'], alpha = 0.5, label = 'multi', color = 'red')
+    plt.xlabel('Probability of Quality Word/Phrase')
+    plt.ylabel('Frequency')
+    plt.legend(loc='upper right')
+    plt.show()
+
     try:
         with open('data/raw/DBLP.5K.txt', 'r') as file:
             data = file.read().split('\n')
         ds = pd.read_csv('data/outputs/AutoPhrase_single-word.txt',sep='\t')
-        
-        
-        #tf-idf top 20 
+
+
+        #tf-idf top 20
         tfIdfVectorizer=TfidfVectorizer(stop_words='english')
         tfIdf = tfIdfVectorizer.fit_transform(data)
         cum = []
@@ -40,14 +64,14 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
             df = df[df['TF-IDF']!=0].sort_values('TF-IDF', ascending=False)
             cum.append(df['TF-IDF'].to_dict())
         counter = collections.Counter()
-        for d in cum: 
+        for d in cum:
             counter.update(d)
         res = pd.DataFrame({'Word':dict(counter).keys(),'Score':dict(counter).values()})
         res['Score'] = res['Score'].apply(lambda x: (x-min(res['Score']))/(max(res['Score'])-min(res['Score'])))
         res.sort_values('Score',ascending=False,inplace=True)
         res.to_csv('data/outputs/tfidf.csv',index=False)
-        
-        
+
+
         #autophrase top 20
         row = ds.columns.values
         ds.columns = ['Score','Word']
@@ -57,7 +81,7 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         res.index = res.Word
         ds.index = ds.Word
         ds.to_csv('data/outputs/quality.csv',index=False)
-        
+
         #multiplication top 20
         haha = {}
         for key in ds.Score.to_dict():
@@ -69,11 +93,11 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         lala = pd.DataFrame({'Word':haha.keys(),'Score':haha.values()})
         lala.sort_values('Score',ascending=False,inplace=True)
         lala.to_csv('data/outputs/multiplication.csv',index=False)
-        
+
     except:
         print('This part works for test run only!')
 
-    
+
     print("Done!")
     print("Distribution graphs are in the /data/outputs folder!")
     return
