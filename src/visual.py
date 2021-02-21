@@ -6,6 +6,7 @@ from tqdm import tqdm
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import collections
+from textblob import TextBlob
 
 def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mapping):
     print("Creating Distribution graphs of the outputs")
@@ -29,6 +30,25 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         with open('data/raw/DBLP.5K.txt', 'r') as file:
             data = file.read().split('\n')
             
+        #sentiment analysis
+        kk = []
+        for i in data:
+            kk.append(TextBlob(i).sentiment.polarity)
+        plt.figure()
+        plt.hist(kk)
+        plt.title('Sentiment Polarity Distribution')
+        plt.savefig(input_path+ 'sentiment_polarity_distribution'+'.png')
+        plt.close()
+            
+        dd = []
+        for i in data:
+            dd.append(TextBlob(i).sentiment.subjectivity)
+        plt.figure()
+        plt.hist(dd)
+        plt.title('Sentiment Subjectivity Distribution')
+        plt.savefig(input_path+ 'sentiment_subjectivity_distribution'+'.png')
+        plt.close()
+        
         
         #tf-idf top 20 single
         tfIdfVectorizer=TfidfVectorizer(stop_words='english')
