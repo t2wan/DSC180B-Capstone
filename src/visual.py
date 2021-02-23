@@ -168,12 +168,13 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         word_count = Counter(word_list)
         single_top_20 = data_kk_single[:20]
         single_top_20['frequency'] = single_top_20.apply(lambda row: word_count[row['phrase']], axis = 1)
+        single_top_20.to_csv('data/outputs/singletop20.csv', index=False)
 
         plt.title('Word Frequency vs AutoPhrase Score')
         plt.xlabel('Score')
         plt.ylabel('Frequency')
 
-        for index, row in single_top_20.iterrows():    
+        for index, row in single_top_20.iterrows():
             plt.text(x = row.value,
                     y = row.frequency,
                     s = row.phrase,
