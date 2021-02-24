@@ -16,38 +16,33 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
 
     #single-word distribution
     plt.figure()
-    plt.hist(data_kk_single['value'])
-    plt.title('result of '+file+' single value distribution')
-    plt.savefig(input_path+ 'single_value_distribution'+'.png')
+    plt.title('Quality Score Distribution of Single-Word Phrases')
+    plt.hist(data_kk_single['value'], alpha=0.5, label='single', color='gray')
+    plt.xlabel('Probability of Quality Word/Phrase')
+    plt.ylabel('Frequency')
+    plt.legend(loc = 'upper right')
+    plt.savefig(input_path + 'single_value_distribution'+'.png')
     plt.close()
+
     #multi-word distribution
     plt.figure()
-    plt.hist(data_kk_multi['value'])
-    plt.title('result of '+ file+' multi-words value distribution')
-    plt.savefig(input_path+ 'multi_value_distribution'+'.png')
+    plt.title('Quality Score Distribution of Multi-Word Phrases')
+    plt.hist(data_kk_multi['value'], alpha=0.5, label='multi', color='red')
+    plt.xlabel('Probability of Quality Word/Phrase')
+    plt.ylabel('Frequency')
+    plt.legend(loc = 'upper right')
+    plt.savefig(input_path + 'multi_value_distribution' + '.png')
     plt.close()
 
-    plt.title('Quality Score Distribution of Single-Word Phrases')
-    plt.hist(data_kk_single['value'], alpha = 0.5, label = 'single', color = 'gray')
-    plt.xlabel('Probability of Quality Word/Phrase')
-    plt.ylabel('Frequency')
-    plt.legend(loc='upper right')
-    plt.show()
-
-    plt.title('Quality Score Distribution of Multi-Word Phrases')
-    plt.hist(data_kk_multi['value'], alpha = 0.5, label = 'multi', color = 'red')
-    plt.xlabel('Probability of Quality Word/Phrase')
-    plt.ylabel('Frequency')
-    plt.legend(loc='upper right')
-    plt.show()
-
+    plt.figure()
     plt.title('Quality Score Distribution of Single-Word vs. Multi-Word Phrases')
     plt.hist(data_kk_single['value'], alpha = 0.5, label = 'single', color = 'gray')
     plt.hist(data_kk_multi['value'], alpha = 0.5, label = 'multi', color = 'red')
     plt.xlabel('Probability of Quality Word/Phrase')
     plt.ylabel('Frequency')
-    plt.legend(loc='upper right')
-    plt.show()
+    plt.legend(loc = 'upper right')
+    plt.savefig(input_path + 'comparison_quality_score' + '.png')
+    plt.close()
 
     try:
         with open('data/raw/DBLP.5K.txt', 'r') as file:
@@ -58,8 +53,10 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         for i in data:
             kk.append(TextBlob(i).sentiment.polarity)
         plt.figure()
-        plt.hist(kk)
+        plt.hist(kk, color='green')
         plt.title('Sentiment Polarity Distribution')
+        plt.xlabel('Polarity Score')
+        plt.ylabel('Frequency')
         plt.savefig(input_path+ 'sentiment_polarity_distribution'+'.png')
         plt.close()
 
@@ -67,8 +64,10 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
         for i in data:
             dd.append(TextBlob(i).sentiment.subjectivity)
         plt.figure()
-        plt.hist(dd)
+        plt.hist(dd, color='yellow')
         plt.title('Sentiment Subjectivity Distribution')
+        plt.xlabel('Subjectivity Score')
+        plt.ylabel('Frequency')
         plt.savefig(input_path+ 'sentiment_subjectivity_distribution'+'.png')
         plt.close()
 
@@ -161,7 +160,7 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
 
 
         # scatterplot - frequency vs score
-        with open(file, 'r') as file_op:
+        with open('data/raw/DBLP.5K.txt', 'r') as file_op:
             d = file_op.read()
 
         word_list = re.findall(r'[A-Za-z]+[0-9]?[+-]*', d)
