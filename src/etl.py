@@ -25,7 +25,6 @@ def get_data(file, out_path):
         data['sentence'] = data['sentence'].apply(lambda x: x.replace('@',''))
         data['sentence'] = data['sentence'].apply(lambda x: x.replace(':',''))
         data['sentence'] = data['sentence'].apply(lambda x: x.replace(',',''))
-        data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('-',''))
         data = data[data['sentence']!='']
         data = data.reset_index(drop = True)
         data.to_csv(out_path + file,index=None, header = None, sep='\t')
@@ -42,7 +41,6 @@ def get_data(file, out_path):
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('@',''))
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace(':',''))
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace(',',''))
-        data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('-',''))
         data_kk = data_kk[data_kk['sentence']!='']
         data_kk = data_kk.reset_index(drop = True)
         data_kk.to_csv(out_path + file, index=None, header = None, sep='\t')
