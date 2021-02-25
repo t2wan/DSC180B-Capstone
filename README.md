@@ -90,7 +90,7 @@ Tiange Wan: some of code portion and report portion, and revised the report port
 Yicen Ma: some of code portion and report portion, and revised the code portion.
 
 
-Anant Gandhi: participate in another repo
+Anant Gandhi: participated in another repo
 
 
 
