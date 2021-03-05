@@ -1,6 +1,0 @@
-Title:
-AutoPhrase Application Web
-
-Abstract:
-We propose the creation of a full-stack website as an extension of the AutoPhrase algorithm and text analysis to help the non-tech users understand their text efficiently. 
-Also, we provide a notebook with one specific dataset with text analysis to the users.
