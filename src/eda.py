@@ -61,7 +61,6 @@ def do_eda(out_dir,input_path,file):
         
         token_arr_kk = list(tokens_kk.values())
         plt.figure()
-        plt.figure()
         plt.semilogy(list(tokens_kk.values()),color = 'pink')
         plt.title('tokens frequency in descending order' )
         plt.xlabel('tokens index')
