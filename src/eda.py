@@ -13,10 +13,10 @@ def do_eda(out_dir,input_path,file):
         data_kk['length_sentnece'] = data_kk['sentence'].apply(lambda x: len(str(x).split('.'))-1)
         
         #input words distribution for each sentence
-        plt.hist(data_kk['length'],label='words length', color='purple')
-        plt.title('Input Words Distribution for Each Sentence')
-        plt.xlabel('Length')
-        plt.ylabel('Frequency')
+        plt.semilogy(data_kk['length'],label='words length', color='purple')
+        plt.title('Input Words Length Distribution for Each Line')
+        plt.xlabel('Each Line')
+        plt.ylabel('Length')
         plt.legend(loc = 'upper right')
         plt.savefig(out_dir+'word_distribution.png')
         plt.close()
@@ -35,8 +35,10 @@ def do_eda(out_dir,input_path,file):
         percent_kk = mean_kk+std_kk*3
         cleaned_kk = data_kk[data_kk['length']<percent_kk]
         plt.figure()
-        plt.hist(cleaned_kk['length'], bins = 20)  
-        plt.title('Cleaned set '+file)
+        plt.hist(cleaned_kk['length'])  
+        plt.title('Cleaned Distribution '+file)
+        plt.xlabel('Length Distribution')
+        plt.ylabel('Frequency')
         plt.savefig(out_dir+'cleaned_set.png')
         plt.close()
         
@@ -59,10 +61,11 @@ def do_eda(out_dir,input_path,file):
         
         token_arr_kk = list(tokens_kk.values())
         plt.figure()
-        plt.hist(list(tokens_kk.values()), bins = 50, color = 'pink',alpha = 0.5)
-        plt.xlabel('Count Time')
+        plt.figure()
+        plt.semilogy(list(tokens_kk.values()),color = 'pink')
+        plt.title('tokens frequency in descending order' )
+        plt.xlabel('tokens index')
         plt.ylabel('Frequency')
-        plt.title('Tokenization Frequency Distribution')
         plt.savefig(out_dir+'tokens_freq.png')
         plt.close()
         
