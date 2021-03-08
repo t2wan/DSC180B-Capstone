@@ -4,7 +4,7 @@ import gzip
 import pandas as pd
 
 def get_data(file, out_path):
-    print('Cleaning Data')
+    print('Downloading Data')
     if file == 'DBLP.txt':
         url = 'http://dmserv2.cs.illinois.edu/data/DBLP.txt.gz'
         r = requests.get(url, allow_redirects=True)
@@ -30,10 +30,9 @@ def get_data(file, out_path):
         data.to_csv(out_path + file,index=None, header = None, sep='\t')
         os.remove('DBLP.txt.gz')
         print('Done')
-        
-        
-    if file == "input.txt":
-        data_kk = pd.read_csv("data/raw/input.txt", header = None, names=['sentence'])
+
+    if file == "DBLP.5K.txt":
+        data_kk = pd.read_csv("AutoPhrase/data/EN/DBLP.5K.txt", header = None, names=['sentence'])
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x:x.strip('\\n'))
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.lower())
         data_kk['sentence'] = data_kk['sentence'].apply(lambda x: x.replace('(',''))
