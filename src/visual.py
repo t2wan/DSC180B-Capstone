@@ -189,7 +189,7 @@ def visual(out_dir,input_path,file,autophrase,multi_word,single_word,token_mappi
                     edgecolor='w',
                     alpha = 0.5)
 
-        plt.savefig(input_path + 'freq_score_plot' + '.png')
+        plt.savefig(input_path + 'freq_score_plot' + '.png', dpi = 300)
         plt.close()
 
     except:
