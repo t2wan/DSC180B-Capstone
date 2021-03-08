@@ -7,11 +7,11 @@ import numpy as np
 
 def do_eda(out_dir,input_path,file):
     print('Creating EDA Graphs')
-    if file == "DBLP.5K":
+    if file == "input":
         data_kk = pd.read_csv(input_path, header=None, names=['sentence'])
         data_kk['length'] = data_kk['sentence'].apply(lambda x: len(str(x).split(' ')))
         data_kk['length_sentnece'] = data_kk['sentence'].apply(lambda x: len(str(x).split('.'))-1)
-        
+
         #input words distribution for each sentence
         plt.semilogy(data_kk['length'],label='words length', color='purple')
         plt.title('Input Words Length Distribution for Each Line')
@@ -20,7 +20,7 @@ def do_eda(out_dir,input_path,file):
         plt.legend(loc = 'upper right')
         plt.savefig(out_dir+'word_distribution.png')
         plt.close()
-        
+
         #box plot length
         plt.figure()
         sns.boxplot(x=data_kk['length']).set_title('Box Plot of Words Lengths in Each Sentence')
@@ -28,7 +28,7 @@ def do_eda(out_dir,input_path,file):
         plt.ylabel('Frequency')
         plt.savefig(out_dir+'box_plot_word_length.png')
         plt.close()
-     
+
         #cleaned
         mean_kk = data_kk['length'].describe()['mean']
         std_kk = data_kk['length'].describe()['std']
@@ -41,7 +41,7 @@ def do_eda(out_dir,input_path,file):
         plt.ylabel('Frequency')
         plt.savefig(out_dir+'cleaned_set.png')
         plt.close()
-        
+
         #token
         tokens_kk = data_kk['sentence'].str.split(expand=True).stack().value_counts().to_dict()
         token = pd.DataFrame.from_dict(tokens_kk,orient='index', columns = ['count'])
@@ -73,21 +73,19 @@ def do_eda(out_dir,input_path,file):
         f = open(out_dir + "description.txt", "a")
         f.write(strs_kk)
         f.close()
-
-        f = open(out_dir + "description.txt", "a")
-        f.write(strs_kk)
-        f.close()
         print('Done')
 
     if file == "DBLP":
         data = pd.read_csv(input_path, header=None, names=['sentence'])
         data['length'] = data['sentence'].apply(lambda x: len(str(x).split(' ')))
+
         #length outlier
         plt.figure()
-        plt.hist(data['length'], bins = 100)  
+        plt.hist(data['length'], bins = 100)
         plt.title(file+'_outlier')
         plt.savefig(out_dir+'outlier'+'.png')
         plt.close()
+
         #box plot length
         plt.figure()
         sns.boxplot(x=data['length']).set_title('box plot of length sentences '+file)
@@ -99,7 +97,7 @@ def do_eda(out_dir,input_path,file):
         percent = mean+std*3
         cleaned = data[data['length']<percent]
         plt.figure()
-        plt.hist(cleaned['length'], bins = 20)  
+        plt.hist(cleaned['length'], bins = 20)
         plt.title('Cleaned set '+file)
         plt.savefig(out_dir+'cleaned_set.png')
         plt.close()
@@ -111,7 +109,7 @@ def do_eda(out_dir,input_path,file):
             tokens = data['sentence'][prev:i].str.split(expand=True).stack().value_counts().to_dict()
             output += Counter(tokens)
             prev = i
-        
+
         token_arr = list(output.values())
         num_rare = sum(i < 5 for i in token_arr)
 
